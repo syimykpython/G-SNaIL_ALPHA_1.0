@@ -1,0 +1,1 @@
+web: gunicorn g_snail.wsgi

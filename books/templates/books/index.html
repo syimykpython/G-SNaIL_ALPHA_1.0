@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школьная библиотека</title>
+    <link rel="stylesheet" href="{% static 'books/css/style.css' %}">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo">📚</span>
+                <h2>Учебники</h2>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Классы</h3>
+                <ul>
+                    <li><a href="#" class="active" onclick="filterGrade(5, this)">5 класс</a></li>
+                    <li><a href="#" onclick="filterGrade(6, this)">6 класс</a></li>
+                    <li><a href="#" onclick="filterGrade(7, this)">7 класс</a></li>
+                    <li><a href="#" onclick="filterGrade(8, this)">8 класс</a></li>
+                    <li><a href="#" onclick="filterGrade(9, this)">9 класс</a></li>
+                    <li><a href="#" onclick="filterGrade(10, this)">10 класс</a></li>
+                    <li><a href="#" onclick="filterGrade(11, this)">11 класс</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Предметы</h3>
+                <ul>
+                    <li><a href="#" onclick="filterSubject('Математика', this)">📐 Математика</a></li>
+                    <li><a href="#" onclick="filterSubject('Алгебра', this)">📊 Алгебра</a></li>
+                    <li><a href="#" onclick="filterSubject('Геометрия', this)">📏 Геометрия</a></li>
+                    <li><a href="#" onclick="filterSubject('Русский язык', this)">📝 Русский язык</a></li>
+                    <li><a href="#" onclick="filterSubject('Литература', this)">📖 Литература</a></li>
+                    <li><a href="#" onclick="filterSubject('Физика', this)">⚡ Физика</a></li>
+                    <li><a href="#" onclick="filterSubject('Химия', this)">🧪 Химия</a></li>
+                    <li><a href="#" onclick="filterSubject('Биология', this)">🌿 Биология</a></li>
+                    <li><a href="#" onclick="filterSubject('История', this)">🏛️ История</a></li>
+                    <li><a href="#" onclick="filterSubject('Английский', this)">🇬🇧 Английский</a></li>
+                    <li><a href="#" onclick="filterSubject('Кыргызский', this)">🏔️ Кыргызский</a></li>
+                    <li><a href="#" onclick="filterSubject('Адабият', this)">📚 Адабият</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 id="contentTitle">5 класс — все предметы</h1>
+            </header>
+            
+            <div class="cards-grid" id="cardsGrid"></div>
+        </main>
+    </div>
+
+    <script src="{% static 'books/js/main.js' %}"></script>
+</body>
+</html>
