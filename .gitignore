@@ -1,16 +1,6 @@
-# Виртуальное окружение
 venv/
-ENV/
-env/
-
-# Системные файлы Python
-*.pyc
 __pycache__/
+*.pyc
 *.sqlite3
-
-# Собраная статика для деплоя
 staticfiles/
-
-# Настройки VS Code / ОС
 .vscode/
-.DS_Store
