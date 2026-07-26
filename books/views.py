@@ -1,7 +1,11 @@
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'books/index.html')
+    grade = request.GET.get('grade')
+    subject = request.GET.get('subject')
 
-# Create your views here.
-
+    context = {
+        'selected_grade': grade,
+        'selected_subject': subject,
+    }
+    return render(request, 'books/index.html', context)

@@ -2,12 +2,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-
-
-<head>
-    <meta name="description" content="Бесплатная электронная библиотека школьных учебников с 5 по 11 класс. Скачивание и чтение онлайн.">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Бесплатная электронная библиотека школьных учебников с 5 по 11 класс. Скачивание и чтение онлайн.">
     <title>Школьная библиотека — Учебники 5-11 класс</title>
     <link rel="stylesheet" href="{% static 'books/css/style.css' %}">
 </head>
@@ -22,41 +19,51 @@
             <div class="sidebar-section">
                 <h3>Классы</h3>
                 <ul>
-                    <li><a href="#" class="active" onclick="filterGrade(5, this)">5 класс</a></li>
-                    <li><a href="#" onclick="filterGrade(6, this)">6 класс</a></li>
-                    <li><a href="#" onclick="filterGrade(7, this)">7 класс</a></li>
-                    <li><a href="#" onclick="filterGrade(8, this)">8 класс</a></li>
-                    <li><a href="#" onclick="filterGrade(9, this)">9 класс</a></li>
-                    <li><a href="#" onclick="filterGrade(10, this)">10 класс</a></li>
-                    <li><a href="#" onclick="filterGrade(11, this)">11 класс</a></li>
+                    <li><a href="?grade=5">5 класс</a></li>
+                    <li><a href="?grade=6">6 класс</a></li>
+                    <li><a href="?grade=7">7 класс</a></li>
+                    <li><a href="?grade=8">8 класс</a></li>
+                    <li><a href="?grade=9">9 класс</a></li>
+                    <li><a href="?grade=10">10 класс</a></li>
+                    <li><a href="?grade=11">11 класс</a></li>
                 </ul>
             </div>
 
             <div class="sidebar-section">
                 <h3>Предметы</h3>
                 <ul>
-                    <li><a href="#" onclick="filterSubject('Математика', this)">📐 Математика</a></li>
-                    <li><a href="#" onclick="filterSubject('Алгебра', this)">📊 Алгебра</a></li>
-                    <li><a href="#" onclick="filterSubject('Геометрия', this)">📏 Геометрия</a></li>
-                    <li><a href="#" onclick="filterSubject('Русский язык', this)">📝 Русский язык</a></li>
-                    <li><a href="#" onclick="filterSubject('Литература', this)">📖 Литература</a></li>
-                    <li><a href="#" onclick="filterSubject('Физика', this)">⚡ Физика</a></li>
-                    <li><a href="#" onclick="filterSubject('Химия', this)">🧪 Химия</a></li>
-                    <li><a href="#" onclick="filterSubject('Биология', this)">🌿 Биология</a></li>
-                    <li><a href="#" onclick="filterSubject('История', this)">🏛️ История</a></li>
-                    <li><a href="#" onclick="filterSubject('Английский', this)">🇬🇧 Английский</a></li>
-                    <li><a href="#" onclick="filterSubject('Кыргызский', this)">🏔️ Кыргызский</a></li>
-                    <li><a href="#" onclick="filterSubject('Адабият', this)">📚 Адабият</a></li>
+                    <li><a href="?subject=Математика">📐 Математика</a></li>
+                    <li><a href="?subject=Алгебра">📊 Алгебра</a></li>
+                    <li><a href="?subject=Геометрия">📏 Геометрия</a></li>
+                    <li><a href="?subject=Русский язык">📝 Русский язык</a></li>
+                    <li><a href="?subject=Литература">📖 Литература</a></li>
+                    <li><a href="?subject=Физика">⚡ Физика</a></li>
+                    <li><a href="?subject=Химия">🧪 Химия</a></li>
+                    <li><a href="?subject=Биология">🌿 Биология</a></li>
+                    <li><a href="?subject=История">🏛️ История</a></li>
+                    <li><a href="?subject=Английский">🇬🇧 Английский</a></li>
+                    <li><a href="?subject=Кыргызский">🏔️ Кыргызский</a></li>
+                    <li><a href="?subject=Адабият">📚 Адабият</a></li>
                 </ul>
             </div>
         </aside>
 
         <main class="main-content">
             <header class="top-bar">
-                <h1 id="contentTitle">5 класс — все предметы</h1>
+                <h1 id="contentTitle">
+                    {% if selected_grade %}
+                        {{ selected_grade }} класс — учебники
+                    {% elif selected_subject %}
+                        {{ selected_subject }}
+                    {% else %}
+                        Все учебники
+                    {% endif %}
+                </h1>
             </header>
             
-            <div class="cards-grid" id="cardsGrid"></div>
+            <div class="cards-grid" id="cardsGrid">
+                <!-- Карточки учебников будут выводиться здесь -->
+            </div>
         </main>
     </div>
 
