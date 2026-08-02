@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Бесплатная электронная библиотека школьных учебников с 5 по 11 класс. Скачивание и чтение онлайн.">
+    <meta name="description" content="Бесплатная электронная библиотека школьных учебников с 5 по 11 класс.">
     <title>Школьная библиотека — Учебники</title>
     <link rel="stylesheet" href="{% static 'books/css/style.css' %}">
 </head>
@@ -17,19 +17,19 @@
             </div>
             
             <div class="sidebar-section">
-                <h3><a href="/" style="text-decoration:none; color:inherit;">Все учебники</a></h3>
+                <h3><a href="/" style="text-decoration:none; color:inherit;">🏠 Все учебники</a></h3>
             </div>
 
             <div class="sidebar-section">
                 <h3>Классы</h3>
                 <ul>
-                    <li><a href="?grade=5">5 класс</a></li>
-                    <li><a href="?grade=6">6 класс</a></li>
-                    <li><a href="?grade=7">7 класс</a></li>
-                    <li><a href="?grade=8">8 класс</a></li>
-                    <li><a href="?grade=9">9 класс</a></li>
-                    <li><a href="?grade=10">10 класс</a></li>
-                    <li><a href="?grade=11">11 класс</a></li>
+                    <li><a href="?grade=5">🎒 5 класс</a></li>
+                    <li><a href="?grade=6">🎒 6 класс</a></li>
+                    <li><a href="?grade=7">🎒 7 класс</a></li>
+                    <li><a href="?grade=8">🎒 8 класс</a></li>
+                    <li><a href="?grade=9">🎓 9 класс</a></li>
+                    <li><a href="?grade=10">🎓 10 класс</a></li>
+                    <li><a href="?grade=11">🎓 11 класс</a></li>
                 </ul>
             </div>
 
@@ -56,11 +56,11 @@
             <header class="top-bar">
                 <h1 id="contentTitle">
                     {% if selected_grade %}
-                        {{ selected_grade }} класс — учебники
+                        🎒 {{ selected_grade }} класс — учебники
                     {% elif selected_subject %}
-                        Учебники по предмету: {{ selected_subject }}
+                        📚 {{ selected_subject }}
                     {% else %}
-                        Все учебники
+                        📚 Все учебники
                     {% endif %}
                 </h1>
             </header>
@@ -70,10 +70,10 @@
                     <div class="book-card">
                         <img src="{% static 'books/images/default_book.png' %}" alt="{{ book.title }}" class="book-cover">
                         <div class="book-info">
+                            <span class="badge">{{ book.grade }} класс</span>
                             <h3>{{ book.title }}</h3>
                             <p class="author">Автор: {{ book.author }}</p>
-                            <p class="meta">{{ book.grade }} класс | {{ book.subject }}</p>
-                            <a href="{{ book.pdf_url }}" class="btn-download" target="_blank">Читать / Скачать</a>
+                            <a href="{{ book.pdf_url }}" class="btn-download" target="_blank" rel="noopener noreferrer">Читать / Скачать</a>
                         </div>
                     </div>
                 {% empty %}
